@@ -16,13 +16,13 @@ export default function App() {
   // Configuración con persistencia en localStorage para facilitar pruebas del administrador
   const [config, setConfig] = useState<ProductConfig>(() => {
     try {
-      const saved = localStorage.getItem('ebook_product_config_v8');
+      const saved = localStorage.getItem('ebook_product_config_v9');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (!parsed.images?.coverMockup || parsed.images.coverMockup.includes('_50_IMAGENS_PARA_COLORIR_a8c24b9c') || parsed.images.coverMockup.includes('ebook_cover_mockup')) {
           parsed.images = { ...parsed.images, coverMockup: initialProductConfig.images.coverMockup };
         }
-        if (!parsed.checkoutUrl || parsed.checkoutUrl.includes('pay.exemplo.com.br')) {
+        if (!parsed.checkoutUrl || !parsed.checkoutUrl.includes('checkoutMode=10')) {
           parsed.checkoutUrl = initialProductConfig.checkoutUrl;
         }
         return parsed;
@@ -53,7 +53,7 @@ export default function App() {
   const handleSaveConfig = (newConfig: ProductConfig) => {
     setConfig(newConfig);
     try {
-      localStorage.setItem('ebook_product_config_v8', JSON.stringify(newConfig));
+      localStorage.setItem('ebook_product_config_v9', JSON.stringify(newConfig));
     } catch {
       // ignore
     }
@@ -63,7 +63,7 @@ export default function App() {
   const handleResetConfig = () => {
     setConfig(initialProductConfig);
     try {
-      localStorage.removeItem('ebook_product_config_v8');
+      localStorage.removeItem('ebook_product_config_v9');
       localStorage.removeItem('ebook_product_config_v7');
       localStorage.removeItem('ebook_product_config_v6');
       localStorage.removeItem('ebook_product_config_v5');

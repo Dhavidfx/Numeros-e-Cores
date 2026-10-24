@@ -55,7 +55,7 @@ export const initialProductConfig: ProductConfig = {
   promoPrice: 5.00,
   currencySymbol: "$",
   countdownMinutes: 15,
-  checkoutUrl: "https://pay.hotmart.com/M108179634I",
+  checkoutUrl: "https://pay.hotmart.com/M108179634I?checkoutMode=10",
   deliveryMethod: "Envío inmediato a tu correo electrónico registrado justo después de confirmarse el pago",
   accessTime: "Acceso de por vida al archivo para descargarlo, guardarlo e imprimirlo cuando desees",
   guaranteePolicy: "Soporte dedicado y entrega inmediata de archivos digitales de alta resolución en formato PDF",
