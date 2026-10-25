@@ -9,7 +9,6 @@ import { AudienceSection } from './components/AudienceSection';
 import { FAQSection } from './components/FAQSection';
 import { Footer } from './components/Footer';
 import { LegalModal, LegalModalType } from './components/LegalModal';
-import { QuickSettingsModal } from './components/QuickSettingsModal';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function App() {
@@ -34,7 +33,6 @@ export default function App() {
   });
 
   const [legalModal, setLegalModal] = useState<LegalModalType>(null);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [showMobileStickyBar, setShowMobileStickyBar] = useState(false);
 
   // Monitorear desplazamiento para mostrar barra fija en móvil tras pasar el hero
@@ -50,41 +48,11 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSaveConfig = (newConfig: ProductConfig) => {
-    setConfig(newConfig);
-    try {
-      localStorage.setItem('ebook_product_config_v9', JSON.stringify(newConfig));
-    } catch {
-      // ignore
-    }
-    setIsSettingsOpen(false);
-  };
-
-  const handleResetConfig = () => {
-    setConfig(initialProductConfig);
-    try {
-      localStorage.removeItem('ebook_product_config_v9');
-      localStorage.removeItem('ebook_product_config_v7');
-      localStorage.removeItem('ebook_product_config_v6');
-      localStorage.removeItem('ebook_product_config_v5');
-      localStorage.removeItem('ebook_product_config_v4');
-      localStorage.removeItem('ebook_product_config_v3');
-      localStorage.removeItem('ebook_product_config_v2');
-      localStorage.removeItem('ebook_product_config_v1');
-    } catch {
-      // ignore
-    }
-    setIsSettingsOpen(false);
-  };
-
   return (
     <div className="min-h-screen w-full overflow-x-hidden flex flex-col bg-[#FAF9F6] text-stone-900 selection:bg-emerald-100 selection:text-emerald-900">
       
       {/* Barra de Navegación Superior */}
-      <TopBar 
-        config={config} 
-        onOpenSettings={() => setIsSettingsOpen(true)} 
-      />
+      <TopBar config={config} />
 
       {/* Contenido Principal con las Secciones */}
       <main className="flex-1 w-full pb-14 md:pb-0">
@@ -137,15 +105,6 @@ export default function App() {
         type={legalModal} 
         onClose={() => setLegalModal(null)} 
         config={config} 
-      />
-
-      {/* Modal de Configuración Rápida del Administrador */}
-      <QuickSettingsModal
-        isOpen={isSettingsOpen}
-        onClose={() => setIsSettingsOpen(false)}
-        config={config}
-        onSave={handleSaveConfig}
-        onReset={handleResetConfig}
       />
 
     </div>
