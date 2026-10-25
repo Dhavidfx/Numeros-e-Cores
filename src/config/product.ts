@@ -4,6 +4,20 @@
  * de soporte están centralizados aquí para fácil mantenimiento.
  */
 
+export interface UpsellConfig {
+  name: string;
+  badge: string;
+  tagline: string;
+  description: string;
+  illustrationCount: string;
+  originalPrice: number;
+  promoPrice: number;
+  currencySymbol: string;
+  coverImage: string;
+  checkoutUrl: string;
+  features: string[];
+}
+
 export interface ProductConfig {
   productName: string;
   productSubtitle: string;
@@ -23,6 +37,7 @@ export interface ProductConfig {
   supportInstagram: string;
   supportInstagramUrl: string;
   hasBonuses: boolean;
+  upsell: UpsellConfig;
   bonuses: Array<{
     id: string;
     title: string;
@@ -54,8 +69,28 @@ export const initialProductConfig: ProductConfig = {
   originalPrice: 19.90,
   promoPrice: 5.00,
   currencySymbol: "$",
-  countdownMinutes: 15,
+  countdownMinutes: 30,
   checkoutUrl: "https://pay.hotmart.com/M108179634I?checkoutMode=10",
+  upsell: {
+    name: "+80 Imágenes para Colorear — Animales y Paisajes Marinos",
+    badge: "MÁS POPULAR · MEJOR VALOR",
+    tagline: "El catálogo completo y definitivo: +80 ilustraciones en un solo archivo",
+    description: "Accede al mismo PDF en su versión completa y definitiva: reúne las 50 ilustraciones de animales marinos más 30 láminas exclusivas de paisajes oceánicos, naufragios históricos, arrecifes fósiles y manglares.",
+    illustrationCount: "+80 Ilustraciones de Autor",
+    originalPrice: 24.90,
+    promoPrice: 8.50,
+    currencySymbol: "$",
+    coverImage: "/assets/aistudio/C_pia_de__80_IMAGENS_PARA_COLORIR_51f5aee6.png",
+    checkoutUrl: "https://pay.hotmart.com/R108183160I?checkoutMode=10",
+    features: [
+      "+80 Ilustraciones Numeradas (Fauna + Paisajes Marinos)",
+      "El mismo archivo PDF completo en ultra resolución 300 DPI A4",
+      "Paletas de colores oficiales integradas al pie de cada dibujo",
+      "Láminas especiales de naufragios, arrecifes fósiles y manglares",
+      "Entrega inmediata en tu correo + Descarga con acceso de por vida",
+      "Soporte prioritario y atención por Instagram @numericpaint"
+    ]
+  },
   deliveryMethod: "Envío inmediato a tu correo electrónico registrado justo después de confirmarse el pago",
   accessTime: "Acceso de por vida al archivo para descargarlo, guardarlo e imprimirlo cuando desees",
   guaranteePolicy: "Soporte dedicado y entrega inmediata de archivos digitales de alta resolución en formato PDF",

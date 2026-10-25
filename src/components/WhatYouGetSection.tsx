@@ -23,14 +23,19 @@ interface WhatYouGetSectionProps {
 }
 
 export const WhatYouGetSection: React.FC<WhatYouGetSectionProps> = ({ config }) => {
-  const [filter, setFilter] = useState<'all' | 'mold' | 'finished'>('all');
+  const [filter, setFilter] = useState<'all' | 'mold' | 'finished' | 'landscape'>('all');
   const [selectedSample, setSelectedSample] = useState<BookSampleItem | null>(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState<boolean>(true);
   
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
+  const moldCount = BOOK_SAMPLES.filter(s => s.type === 'mold').length;
+  const finishedCount = BOOK_SAMPLES.filter(s => s.type === 'finished').length;
+  const landscapeCount = BOOK_SAMPLES.filter(s => s.category === 'landscape').length;
+
   const filteredSamples = BOOK_SAMPLES.filter(item => {
     if (filter === 'all') return true;
+    if (filter === 'landscape') return item.category === 'landscape';
     return item.type === filter;
   });
 
@@ -217,7 +222,7 @@ export const WhatYouGetSection: React.FC<WhatYouGetSectionProps> = ({ config }) 
                       : 'hover:text-stone-900'
                   }`}
                 >
-                  Moldes B&N (4)
+                  Moldes B&N ({moldCount})
                 </button>
                 <button
                   type="button"
@@ -228,7 +233,18 @@ export const WhatYouGetSection: React.FC<WhatYouGetSectionProps> = ({ config }) 
                       : 'hover:text-stone-900'
                   }`}
                 >
-                  Coloreadas (4)
+                  Coloreadas ({finishedCount})
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setFilter('landscape')}
+                  className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+                    filter === 'landscape'
+                      ? 'bg-white text-teal-900 shadow-2xs'
+                      : 'hover:text-stone-900'
+                  }`}
+                >
+                  Paisajes +80 ({landscapeCount})
                 </button>
               </div>
 
@@ -389,7 +405,7 @@ export const WhatYouGetSection: React.FC<WhatYouGetSectionProps> = ({ config }) 
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
               <span>
-                Son <strong>+50 páginas completas</strong> en el archivo final, todas en el mismo estándar con paleta de colores y numeración nítida.
+                Disfruta de <strong>+50 páginas</strong> en la versión esencial o llévate el catálogo definitivo con <strong>+80 páginas</strong> completas de fauna y paisajes marinos.
               </span>
             </div>
 

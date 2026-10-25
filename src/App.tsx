@@ -12,10 +12,10 @@ import { LegalModal, LegalModalType } from './components/LegalModal';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function App() {
-  // Configuración con persistencia en localStorage para facilitar pruebas del administrador
+  // Configuración con persistencia sincronizada
   const [config, setConfig] = useState<ProductConfig>(() => {
     try {
-      const saved = localStorage.getItem('ebook_product_config_v9');
+      const saved = localStorage.getItem('ebook_product_config_v11');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (!parsed.images?.coverMockup || parsed.images.coverMockup.includes('_50_IMAGENS_PARA_COLORIR_a8c24b9c') || parsed.images.coverMockup.includes('ebook_cover_mockup')) {
@@ -23,6 +23,9 @@ export default function App() {
         }
         if (!parsed.checkoutUrl || !parsed.checkoutUrl.includes('checkoutMode=10')) {
           parsed.checkoutUrl = initialProductConfig.checkoutUrl;
+        }
+        if (!parsed.upsell || !parsed.upsell.checkoutUrl?.includes('R108183160I')) {
+          parsed.upsell = initialProductConfig.upsell;
         }
         return parsed;
       }
@@ -85,7 +88,7 @@ export default function App() {
       {showMobileStickyBar && (
         <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 py-2.5 px-4 flex items-center justify-between gap-3 shadow-lg">
           <div className="flex flex-col">
-            <span className="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Oferta Especial</span>
+            <span className="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">Ofertas desde</span>
             <span className="text-base font-extrabold text-stone-900 leading-none">
               {config.currencySymbol} {config.promoPrice.toFixed(2)}
             </span>
