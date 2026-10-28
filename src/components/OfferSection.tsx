@@ -96,6 +96,8 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ config }) => {
                   alt={config.productName}
                   referrerPolicy="no-referrer"
                   className="w-16 sm:w-20 h-auto object-cover rounded-xl shadow-md border border-stone-600 shrink-0"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="text-left">
                   <h3 className="text-lg sm:text-xl font-bold text-white leading-snug">
@@ -161,7 +163,7 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ config }) => {
                 href={config.checkoutUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 h-12 px-4 py-2.5 text-sm font-bold text-white bg-stone-700 hover:bg-stone-600 active:scale-[0.98] rounded-xl shadow-md transition-all cursor-pointer group"
+                className="w-full inline-flex items-center justify-center gap-2 h-12 px-4 py-2.5 text-sm font-bold text-white bg-stone-700 hover:bg-stone-600 active:scale-[0.98] rounded-xl shadow-md transition-all cursor-pointer group hover:bg-emerald-800"
               >
                 <span>APROVECHAR ESENCIAL (${config.promoPrice.toFixed(2)})</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -205,6 +207,8 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ config }) => {
                     alt={upsell.name}
                     referrerPolicy="no-referrer"
                     className="w-20 sm:w-28 h-auto object-cover rounded-xl shadow-lg border-2 border-amber-400/60"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute -bottom-1 -right-1 bg-amber-400 text-stone-950 text-[10px] font-black px-1.5 py-0.5 rounded-md shadow-xs">
                     +80 LÁMINAS
@@ -260,13 +264,13 @@ export const OfferSection: React.FC<OfferSectionProps> = ({ config }) => {
               </div>
             </div>
 
-            {/* Botón CTA Destacado Upsell */}
+            {/* Botón CTA Destacado Upsell con Animación Pulsante */}
             <div className="pt-2">
               <a
                 href={upsell.checkoutUrl || "https://pay.hotmart.com/R108183160I?checkoutMode=10"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 h-14 px-6 text-base sm:text-lg font-black text-stone-950 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 hover:from-amber-300 hover:to-amber-200 active:scale-[0.98] rounded-2xl shadow-xl hover:shadow-2xl transition-all cursor-pointer group"
+                className="w-full inline-flex items-center justify-center gap-2 h-14 px-6 text-base sm:text-lg font-black text-stone-950 bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 hover:from-amber-300 hover:to-amber-200 active:scale-[0.98] rounded-2xl shadow-xl hover:shadow-2xl transition-all cursor-pointer group animate-pulse-gold"
               >
                 <span>LLEVAR EDICIÓN COMPLETA (${upsell.promoPrice.toFixed(2)})</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform" />

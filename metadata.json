@@ -1,6 +1,6 @@
 {
   "name": "Colorear por Números - Animales Marinos",
-  "description": "Página oficial del libro digital de ilustraciones numeradas para colorear y relajarse por Dhavidfx.",
+  "description": "Página oficial del libro digital de ilustraciones numeradas para colorear y relajarse por Números y Colores.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

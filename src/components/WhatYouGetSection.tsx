@@ -337,6 +337,7 @@ export const WhatYouGetSection: React.FC<WhatYouGetSectionProps> = ({ config }) 
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-contain p-1.5 transition-transform duration-500 group-hover:scale-102"
                         loading="lazy"
+                        decoding="async"
                       />
 
                       {/* Botón de Zoom / Pantalla completa */}

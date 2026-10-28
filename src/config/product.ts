@@ -62,7 +62,7 @@ export interface ProductConfig {
 export const initialProductConfig: ProductConfig = {
   productName: "+50 Imágenes para Colorear — Animales Marinos",
   productSubtitle: "Descubre el fascinante universo de los animales marinos con ilustraciones geométricas y numeradas para colorear, relajarte y despertar tu creatividad.",
-  brandName: "Dhavidfx",
+  brandName: "Números y Colores",
   brandSlogan: "Ilustraciones de autor y momentos de tranquilidad en formato digital",
   illustrationCount: "+50 Ilustraciones Exclusivas",
   fileFormat: "PDF Digital en Alta Resolución (300 DPI - Estándar A4)",
@@ -80,7 +80,7 @@ export const initialProductConfig: ProductConfig = {
     originalPrice: 24.90,
     promoPrice: 8.50,
     currencySymbol: "$",
-    coverImage: "/assets/aistudio/C_pia_de__80_IMAGENS_PARA_COLORIR_51f5aee6.png",
+    coverImage: "/assets/aistudio/C_pia_de__80_IMAGENS_PARA_COLORIR_51f5aee6.webp",
     checkoutUrl: "https://pay.hotmart.com/R108183160I?checkoutMode=10",
     features: [
       "+80 Ilustraciones Numeradas (Fauna + Paisajes Marinos)",
@@ -125,11 +125,11 @@ export const initialProductConfig: ProductConfig = {
     },
   ],
   images: {
-    coverMockup: "/assets/aistudio/_50_IMAGENS_PARA_COLORIR__1__dbe30bbe.png",
-    step1Numbered: "/assets/aistudio/Uma_lontra_marinha_molde_maxima_qualidade_300dpi_aa9aaee7.png",
-    step2Progress: "/assets/aistudio/Um_peixe_borboleta_molde_maxima_qualidade_300dpi_eba2960e.png",
-    step3Finished: "/assets/aistudio/Uma_lontra_marinha_original_maxima_qualidade_6bc4316b.jpg",
-    bonusGuide: "/assets/aistudio/_50_IMAGENS_PARA_COLORIR__1__dbe30bbe.png",
+    coverMockup: "/assets/aistudio/_50_IMAGENS_PARA_COLORIR__1__dbe30bbe.webp",
+    step1Numbered: "/assets/aistudio/Uma_lontra_marinha_molde_maxima_qualidade_300dpi_aa9aaee7.webp",
+    step2Progress: "/assets/aistudio/Um_peixe_borboleta_molde_maxima_qualidade_300dpi_eba2960e.webp",
+    step3Finished: "/assets/aistudio/Uma_lontra_marinha_original_maxima_qualidade_6bc4316b.webp",
+    bonusGuide: "/assets/aistudio/_50_IMAGENS_PARA_COLORIR__1__dbe30bbe.webp",
   },
   faq: [
     {

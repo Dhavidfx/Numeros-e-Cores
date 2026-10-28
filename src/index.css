@@ -12,3 +12,34 @@
     font-family: 'Outfit', sans-serif;
   }
 }
+
+@keyframes pulse-gold {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.35);
+  }
+  50% {
+    transform: scale(1.028);
+    box-shadow: 0 8px 28px 6px rgba(245, 158, 11, 0.65);
+  }
+}
+
+@keyframes pulse-emerald {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px 0 rgba(6, 95, 70, 0.3);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 0 6px 20px 3px rgba(6, 95, 70, 0.5);
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite ease-in-out;
+}
+
+.animate-pulse-emerald {
+  animation: pulse-emerald 2.2s infinite ease-in-out;
+}
+
